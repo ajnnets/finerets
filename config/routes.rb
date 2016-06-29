@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :regions
+
   resources :testimonials
 
   resources :popular_destinations
