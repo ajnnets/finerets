@@ -1,4 +1,5 @@
 ActiveAdmin.register Testimonial do
+  permit_params :subject, :message, :client_name, :published
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
