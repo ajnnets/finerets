@@ -1,0 +1,53 @@
+<h1>Listing villas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Guest count</th>
+      <th>Bedroom count</th>
+      <th>Villa detail heading</th>
+      <th>Love points heading</th>
+      <th>Villa rates heading</th>
+      <th>Need to know heading</th>
+      <th>Feature and facility heading</th>
+      <th>Similar villas</th>
+      <th>Published</th>
+      <th>Area</th>
+      <th>Region</th>
+      <th>Country</th>
+      <th>Continent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @villas.each do |villa| %>
+      <tr>
+        <td><%= villa.name %></td>
+        <td><%= villa.description %></td>
+        <td><%= villa.guest_count %></td>
+        <td><%= villa.bedroom_count %></td>
+        <td><%= villa.villa_detail_heading %></td>
+        <td><%= villa.love_points_heading %></td>
+        <td><%= villa.villa_rates_heading %></td>
+        <td><%= villa.need_to_know_heading %></td>
+        <td><%= villa.feature_and_facility_heading %></td>
+        <td><%= villa.similar_villas %></td>
+        <td><%= villa.published %></td>
+        <td><%= villa.area %></td>
+        <td><%= villa.region %></td>
+        <td><%= villa.country %></td>
+        <td><%= villa.continent %></td>
+        <td><%= link_to 'Show', villa %></td>
+        <td><%= link_to 'Edit', edit_villa_path(villa) %></td>
+        <td><%= link_to 'Destroy', villa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Villa', new_villa_path %>

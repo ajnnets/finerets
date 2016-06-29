@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @villa.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @villa.description %>
+</p>
+
+<p>
+  <strong>Guest count:</strong>
+  <%= @villa.guest_count %>
+</p>
+
+<p>
+  <strong>Bedroom count:</strong>
+  <%= @villa.bedroom_count %>
+</p>
+
+<p>
+  <strong>Villa detail heading:</strong>
+  <%= @villa.villa_detail_heading %>
+</p>
+
+<p>
+  <strong>Love points heading:</strong>
+  <%= @villa.love_points_heading %>
+</p>
+
+<p>
+  <strong>Villa rates heading:</strong>
+  <%= @villa.villa_rates_heading %>
+</p>
+
+<p>
+  <strong>Need to know heading:</strong>
+  <%= @villa.need_to_know_heading %>
+</p>
+
+<p>
+  <strong>Feature and facility heading:</strong>
+  <%= @villa.feature_and_facility_heading %>
+</p>
+
+<p>
+  <strong>Similar villas:</strong>
+  <%= @villa.similar_villas %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @villa.published %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @villa.area %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @villa.region %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @villa.country %>
+</p>
+
+<p>
+  <strong>Continent:</strong>
+  <%= @villa.continent %>
+</p>
+
+<%= link_to 'Edit', edit_villa_path(@villa) %> |
+<%= link_to 'Back', villas_path %>
