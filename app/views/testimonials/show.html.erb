@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Testimonial -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Testimonial %></h1>
+</div>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @testimonial.subject %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:subject) %></dt>
+      <dd><pre class="prettyprint"><%= @testimonial.subject %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:message) %></dt>
+      <dd><pre class="prettyprint"><%= @testimonial.message %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:client_name) %></dt>
+      <dd><pre class="prettyprint"><%= @testimonial.client_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
+      <dd><pre class="prettyprint"><%= @testimonial.published %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Message:</strong>
-  <%= @testimonial.message %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              testimonials_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_testimonial_path(@testimonial), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              testimonial_path(@testimonial),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Client name:</strong>
-  <%= @testimonial.client_name %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @testimonial.published %>
-</p>
-
-<%= link_to 'Edit', edit_testimonial_path(@testimonial) %> |
-<%= link_to 'Back', testimonials_path %>

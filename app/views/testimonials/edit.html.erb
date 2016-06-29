@@ -1,6 +1,5 @@
-<h1>Editing testimonial</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @testimonial %> |
-<%= link_to 'Back', testimonials_path %>
+<%- model_class = Testimonial -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Testimonial %></h1>
+</div>
+<%= render :partial => 'form' %>
