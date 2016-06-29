@@ -1,5 +1,6 @@
-<h1>New continent</h1>
+<%- model_class = Continent -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => Continent %></h1>
+</div>
+<%= render :partial => 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', continents_path %>
