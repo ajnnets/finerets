@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @popular_destination.area %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @popular_destination.region %>
+</p>
+
+<%= link_to 'Edit', edit_popular_destination_path(@popular_destination) %> |
+<%= link_to 'Back', popular_destinations_path %>
