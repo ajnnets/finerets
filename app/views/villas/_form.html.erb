@@ -1,25 +1,76 @@
-<%= simple_form_for(@villa) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :guest_count %>
-    <%= f.input :bedroom_count %>
-    <%= f.input :villa_detail_heading %>
-    <%= f.input :love_points_heading %>
-    <%= f.input :villa_rates_heading %>
-    <%= f.input :need_to_know_heading %>
-    <%= f.input :feature_and_facility_heading %>
-    <%= f.input :similar_villas %>
-    <%= f.input :published %>
-    <%= f.association :area %>
-    <%= f.association :region %>
-    <%= f.association :country %>
-    <%= f.association :continent %>
+<%= form_for @villa, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :guest_count, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :guest_count, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :bedroom_count, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :bedroom_count, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :villa_detail_heading, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :villa_detail_heading, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :love_points_heading, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :love_points_heading, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :villa_rates_heading, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :villa_rates_heading, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :need_to_know_heading, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :need_to_know_heading, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :feature_and_facility_heading, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :feature_and_facility_heading, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :similar_villas, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :similar_villas, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :published, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :published, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  villas_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

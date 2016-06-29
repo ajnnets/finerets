@@ -1,79 +1,44 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Villa -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Villa %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @villa.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:guest_count) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.guest_count %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:bedroom_count) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.bedroom_count %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:villa_detail_heading) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.villa_detail_heading %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:love_points_heading) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.love_points_heading %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:villa_rates_heading) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.villa_rates_heading %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:need_to_know_heading) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.need_to_know_heading %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:feature_and_facility_heading) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.feature_and_facility_heading %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:similar_villas) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.similar_villas %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
+      <dd><pre class="prettyprint"><%= @villa.published %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @villa.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              villas_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_villa_path(@villa), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              villa_path(@villa),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Guest count:</strong>
-  <%= @villa.guest_count %>
-</p>
-
-<p>
-  <strong>Bedroom count:</strong>
-  <%= @villa.bedroom_count %>
-</p>
-
-<p>
-  <strong>Villa detail heading:</strong>
-  <%= @villa.villa_detail_heading %>
-</p>
-
-<p>
-  <strong>Love points heading:</strong>
-  <%= @villa.love_points_heading %>
-</p>
-
-<p>
-  <strong>Villa rates heading:</strong>
-  <%= @villa.villa_rates_heading %>
-</p>
-
-<p>
-  <strong>Need to know heading:</strong>
-  <%= @villa.need_to_know_heading %>
-</p>
-
-<p>
-  <strong>Feature and facility heading:</strong>
-  <%= @villa.feature_and_facility_heading %>
-</p>
-
-<p>
-  <strong>Similar villas:</strong>
-  <%= @villa.similar_villas %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @villa.published %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @villa.area %>
-</p>
-
-<p>
-  <strong>Region:</strong>
-  <%= @villa.region %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @villa.country %>
-</p>
-
-<p>
-  <strong>Continent:</strong>
-  <%= @villa.continent %>
-</p>
-
-<%= link_to 'Edit', edit_villa_path(@villa) %> |
-<%= link_to 'Back', villas_path %>

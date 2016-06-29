@@ -1,30 +1,30 @@
-<h1>Listing villas</h1>
-
-<table>
+<%- model_class = Villa -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Villa %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Guest count</th>
-      <th>Bedroom count</th>
-      <th>Villa detail heading</th>
-      <th>Love points heading</th>
-      <th>Villa rates heading</th>
-      <th>Need to know heading</th>
-      <th>Feature and facility heading</th>
-      <th>Similar villas</th>
-      <th>Published</th>
-      <th>Area</th>
-      <th>Region</th>
-      <th>Country</th>
-      <th>Continent</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:guest_count) %></th>
+      <th><%= model_class.human_attribute_name(:bedroom_count) %></th>
+      <th><%= model_class.human_attribute_name(:villa_detail_heading) %></th>
+      <th><%= model_class.human_attribute_name(:love_points_heading) %></th>
+      <th><%= model_class.human_attribute_name(:villa_rates_heading) %></th>
+      <th><%= model_class.human_attribute_name(:need_to_know_heading) %></th>
+      <th><%= model_class.human_attribute_name(:feature_and_facility_heading) %></th>
+      <th><%= model_class.human_attribute_name(:similar_villas) %></th>
+      <th><%= model_class.human_attribute_name(:published) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @villas.each do |villa| %>
       <tr>
+        <td><%= villa.id %></td>
         <td><%= villa.name %></td>
         <td><%= villa.description %></td>
         <td><%= villa.guest_count %></td>
@@ -36,18 +36,21 @@
         <td><%= villa.feature_and_facility_heading %></td>
         <td><%= villa.similar_villas %></td>
         <td><%= villa.published %></td>
-        <td><%= villa.area %></td>
-        <td><%= villa.region %></td>
-        <td><%= villa.country %></td>
-        <td><%= villa.continent %></td>
-        <td><%= link_to 'Show', villa %></td>
-        <td><%= link_to 'Edit', edit_villa_path(villa) %></td>
-        <td><%= link_to 'Destroy', villa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l villa.created_at, format: :long %></td>
+        <td>
+          <%= link_to villa_path(villa), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to villa_path(villa), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Villa', new_villa_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_villa_path,
+            :class => 'btn btn-primary' %>
